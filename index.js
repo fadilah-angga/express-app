@@ -12,4 +12,9 @@ app.get('/', (req, res) => {
     res.status(200).send('Welcome !')
 })
 
+app.get('/products', (req, res) => {
+    let products = JSON.parse(fs.readFileSync('./data/products.json'))
+    res.status(200).send(products)
+})
+
 app.listen(PORT, () => console.log('Server running on port', PORT))
