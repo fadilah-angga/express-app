@@ -1,12 +1,1 @@
-[
-    {
-        "id": 1,
-        "nama": "Sepatu",
-        "harga": 250000
-    },
-    {
-        "id": 2,
-        "nama": "Kemeja",
-        "harga": 150000
-    }
-]
+[{"id":1,"nama":"Sepatu","harga":250000},{"id":2,"nama":"Kemeja","harga":150000},{"id":3,"nama":"Celana","harga":100000}]

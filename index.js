@@ -25,8 +25,24 @@ app.post('/products', (req, res) => {
     res.status(200).send(products)
 })
 
+app.patch('/products', (req, res) => {
+    let products = JSON.parse(fs.readFileSync('./data/products.json'))
+    let idx = products.findIndex(product => product.id == req.query.id)
+
+    for (let prop in products[idx]) {
+        for (let bodyProp in req.body) {
+            if (prop == bodyProp){
+                products[idx][prop] = req.body[bodyProp]
+            }
+        }
+    }
+
+    fs.writeFileSync('./data/products.json', JSON.stringify(products))
+    res.status(200).send(products)
+})
+
 app.delete('/products', (req, res) => {
-    let idx = products.findIndex(product => product.id === req.query.id)
+    let idx = products.findIndex(product => product.id == req.query.id)
     products.splice(idx, 1)
 
     fs.writeFileSync('./data/products.json', JSON.stringify(products))
